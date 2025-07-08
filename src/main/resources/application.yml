@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: ApiArch
+    datasource:
+        url: jdbc:sqlserver://localhost:1433;databaseName=localhost
+        username: yeun
+        password: JY002415!
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
