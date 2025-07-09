@@ -7,7 +7,7 @@ import com.nuey.ApiArch.entity.User;
 @Mapper
 public interface AccountMapper {
 
-    public int signup(User user);
+    public int insertUser(User user);
 
-    public boolean existsByUsername(String username);
+    public int existsByUsername(String username);
 }

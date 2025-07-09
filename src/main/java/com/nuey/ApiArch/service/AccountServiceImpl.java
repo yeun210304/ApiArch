@@ -18,11 +18,22 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public int signup(User user) {
-        return 0;
+        String username = user.getUsername();
+		boolean isExist = this.existsByUsername(username);
+		if (isExist) {
+			return 0;
+		}
+
+        User data = User.builder()
+            .username(username)
+            .password(passwordEncoder.encode(user.getPassword()))
+            .role(user.getRole() != null ? user.getRole() : "ROLE_ADMIN")
+            .build();
+
+		return accountMapper.insertUser(data);
     }
 
     public boolean existsByUsername(String username) {
-		
-		return false;
+		return accountMapper.existsByUsername(username) > 0;
 	}
 }
