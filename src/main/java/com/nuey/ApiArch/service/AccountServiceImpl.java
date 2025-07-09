@@ -27,13 +27,13 @@ public class AccountServiceImpl implements AccountService {
         User data = User.builder()
             .username(username)
             .password(passwordEncoder.encode(user.getPassword()))
-            .role(user.getRole() != null ? user.getRole() : "ROLE_ADMIN")
+            .role(user.getRole() != null ? user.getRole() : "ROLE_USER")
             .build();
 
 		return accountMapper.insertUser(data);
     }
 
     public boolean existsByUsername(String username) {
-		return accountMapper.existsByUsername(username) > 0;
+		return accountMapper.existsByUsername(username);
 	}
 }

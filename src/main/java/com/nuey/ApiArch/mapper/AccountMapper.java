@@ -9,5 +9,5 @@ public interface AccountMapper {
 
     public int insertUser(User user);
 
-    public int existsByUsername(String username);
+    public boolean existsByUsername(String username);
 }
