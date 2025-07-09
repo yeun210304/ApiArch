@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nuey.ApiArch.mapper.AccountMapper">
+
+    <insert id="signup" parameterType="User">
+        INSERT INTO user (username, password, role)
+        VALUES (#{username}, #{password}, #{role})
+    </insert>
+
+    <select id="existsByUsername" parameterType="String" resultType="boolean">
+        SELECT count(*) > 0 
+        FROM user 
+        WHERE username = #{username}
+    </select>
+
+</mapper>
